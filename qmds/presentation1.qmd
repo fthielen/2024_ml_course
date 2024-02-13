@@ -1,0 +1,102 @@
+---
+title: "📑 Possible project(s) 💡"
+author: "Frederick Thielen"
+date: "13-02-2024"
+format: revealjs
+embed-resources: true
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+#| echo=FALSE
+
+source(here::here("r/data_crs.R"))
+```
+
+
+# Predicting CRS after CAR-T cell therapy in B-ALL patients 🧫
+
+## PICO
+
+- **P (Population)**: Patients with B cell-acute lymphoblastic leukemia (B-ALL) undergoing CD19 CAR-T cell therapy
+- **I (Intervention)**: CAR-T cell therapy, a groundbreaking immunotherapy that genetically modifies a patient's T cells to recognise and attack cancer cells
+- **C (Comparison)**: None
+- **O (Outcome)**: Occurrence of sCRS (severe CRS) and the highest potential CRS level a patient may reach.
+
+## Business value: company / stakeholder (1/2)
+
+Goal: *enhance the management* CRS in patients undergoing CAR T-cell therapy
+
+- by predicting likelihood and severity of CRS
+- allows implementing timely interventions, such as closer monitoring, preemptive medication, or adjusting therapy plans
+
+## Business value: company / stakeholder (2/2)
+
+### 🏁 KPIs:
+
+- Patient outcomes: improvement in overall patient outcomes, including reduced incidence of severe CRS
+- Healthcare utilisation: reduction in need for IC or emergency interventions related to CRS
+- Time to intervention: reduction in the time between CAR T-cell infusion and the initiation of interventions for CRS
+- Patient satisfaction: increased patient satisfaction scores or quality of life
+
+
+## Business value: project
+
+###  🏁 KPIs:
+
+- Prediction Accuracy: percentage of correct predictions (model reliability)
+- Sensitivity (True Positive Rate): ability to correctly identify patients who will develop severe CRS
+- Specificity (True Negative Rate): model's effectiveness in correctly identifying patients who will not develop severe CRS
+
+## 💻 A predcitive model based on published patient data
+
+- $Y$: CRS severity (ordinal)
+- $X_1$ - $X_n$: `{r} length(colnames(dat_crs))-1` patient characteristics:
+
+```{r}
+names(dat_crs)[1:length(colnames(dat_crs))-1]
+```
+
+## 👓 Preview of dataset
+
+```{r}
+head(dat_crs)
+```
+
+# Antipsychotic medication maintenance vs. dose-reduction/discontinuation in first episode psychosis 💊 
+
+## PICO
+
+- **P (Population)**: Patients with first episode psychosis
+- **I (Intervention)**: Maintenance antipsychotic medication
+- **C (Comparison)**: Dose-reduction/discontinuation of antipsychotic medication
+- **O (Outcome)**: Relapse of psychosis. HERE: work status, income, and healthcare utilisation
+
+## Business value: company / stakeholder (1/2)
+
+Goal: *improve the management* of first episode psychosis
+
+- by identifying patients who may benefit from dose-reduction/discontinuation of antipsychotic medication
+- allows for a more personalised treatment approach, potentially reducing side effects and improving quality of life
+- allowing better capacity planning
+
+## Business value: company / stakeholder (2/2)
+
+### 🏁 KPIs:
+
+- Patient outcomes: improvement in return to work and income
+- Healthcare utilisation: knowing upfront who will use more healthcare in the future -> early interventions and capacity planning
+- Patient satisfaction: increased patient satisfaction scores or quality of life
+
+## Business value: project
+
+###  🏁 KPIs:
+
+- Percentage of correct predictions (model reliability)
+- Model's effectiveness in correctly identifying patients who return to work (income categories), and use more/less healthcare
+
+## 💻 A predcitive model based on patient & CBS data
+
+- $Y$: Work status OR income level OR healthcare utilisation (ordinal)
+- $X_1$ - $X_n$: patient characteristics from HAMLETT trial and CBS data
